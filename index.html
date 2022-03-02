@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link de bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Link de css -->
+  <title>l'insegnante</title>
+</head>
+
+  <body>
+
+    <header>
+      <!-- Menú de la página -->
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-info bg-gradient bg-opacity-50 p-4">
+          <div class="container">
+          <div class="row ">
+          <div class="col">
+          <h5 id="prueba" class="text-dark">l'insegnante</h5>
+          <span class=" text-light">Plataforma de registro de alumnos para profesores y maestros.</span>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-info bg-gradient bg-opacity-50 mb-5">
+        <div class="container-fluid mx-4 justify-content-center">
+          <a class="navbar-brand" href="index.html">
+            <img src="./img/Insegnate.png" alt="logo" width="170" height="">
+          </a>
+        </div>
+        <div class="container-fluid mx-4">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <!-- Boton de inicio de sesión -->
+          <button type="button" class="btn bg-light btn-outline-info fw-bold col-6 p-1"
+            data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Iniciar sesión
+          </button>
+          <!-- Boton de la tabla de alumnos -->
+          <button class="btn bg-light btn-outline-info col-6 fw-bold" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">Carga de
+            alumnado</button>
+          <button type="button" id="buttonContacts" class="btn btn-outline-info" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-chat-heart-fill" viewBox="0 0 16 16">
+              <path d="M8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6-.097 1.016-.417 2.13-.771 2.966-.079.186.074.394.273.362 2.256-.37 3.597-.938 4.18-1.234A9.06 9.06 0 0 0 8 15Zm0-9.007c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+            </svg>
+          </button> 
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+
+      <div id="image">
+      <div class="container-fluid">
+        <div class="row">
+      <img src="./img/teacherBackground.jpg" width="80%" class="justify-content-center rounded-pill" alt="" srcset="">
+          </div>
+      </div>
+      </div>
+                                      <!-- Loging para que profesores puedan iniciar sesión -->
+
+      <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="container card">
+                    <div class="row p-4 justify-content-center">
+                      <div id="ingresar"></div>
+                      <label for="staticEmail" class="col-sm-3 col-form-label fw-bold">Email</label>
+                      <div class="col-sm-8">
+                        <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+                      </div>
+                    </div>
+                    <div class="row p-3 justify-content-center">
+                      <label for="inputPassword" class="col-sm-4 col-form-label fw-bold">Contraseña</label>
+                      <div class="col-sm-7">
+                        <input type="password" class="form-control" id="password">
+                      </div>
+                      <div id="mensaje">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer col-12">
+                  <button onclick="ingresar()" class="btn btn-outline-info fw-bold" type="button">Ingresar</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+                                      <!-- Tabla de alumnos -->
+      <div style="min-height: 120px;">
+        <div class="collapse" id="collapseWidthExample">
+          <div class="card card-body">
+          <div id="tablaPrincipal" class="container">
+              <div class="row ">
+                <table class="table table- bg-light bg-gradient  table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Legajo</th>
+                      <th scope="col">Nombre y Apellido del alumno</th>
+                      <th scope="col">Primer Parcial</th>
+                      <th scope="col">Segundo Parcial</th>
+                      <th scope="col">Tercer Parcial</th>
+                      <th scope="col">Promedio General</th>
+                      <th scope="col">Calificación</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tablaAlumnos">
+                    <tr>
+                      <td class="col-1">
+                        <input type="text" id="legajo" class="form-control">
+                      </td>
+                      <td class="col-3">
+                        <input type="text" id="nombreApellido" class="form-control">
+                      </td>
+                      <td class="col-1">
+                        <input type="text" id="notaUno" class="form-control">
+                      </td>
+                      <td class="col-1">
+                        <input type="text" id="notaDos" class="form-control">
+                      </td>
+                      <td class="col-1">
+                        <input type="text" id="notaTres" class="form-control">
+                      </td>
+                      <td class="col-1">
+                        <div id="promedio"></div>
+                      </td>
+                      <td class="col-1">
+                        <div id="calificacion"></div>
+                      </td>
+                      <td class="col-1">
+                        <button id="botonCargar" onclick="Cargar()" type="button" class="btn btn-success btn-sm">Guardar y Cargar</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+                                      <!-- Info del array cargado -->
+      <div id="info" class=""></div>
+
+
+                                      <!-- JSON con los contactos -->
+      <div class="container">
+            <div id="spinner"></div>
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div id="contacts" class="row">
+                  <h4>Contactos docentes</h4>  
+                </div>
+            </div>
+        
+      </div>
+      </main>
+
+      <footer>
+      </footer>
+
+      <!-- Libreria de Javascript: JQUERY -->
+      <script src="./js/jquery.min.js"></script>
+
+      <!-- Scrip de bootstrap para JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+      <!-- Scrips de Javascript -->
+      <script src="./js/main.js"></script>
+      <script src="./js/login.js"></script>
+      <script src="./js/eliminar.js"></script>
+      <script src="./js/image.js"></script><script></script>
+      <script src="./js/ajax.js"></script>
+      <script src="./js/json.js"></script>
+
+
+  </body>
+
+</html>
